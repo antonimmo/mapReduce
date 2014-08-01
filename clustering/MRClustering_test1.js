@@ -43,7 +43,7 @@ var getLevenshteinFn = function(){
 	
 }
 
-var mapping1 = {
+var propertiesToProcess = {
 	NameFirst: {
 		metric: getLevenshteinFn(),
 		weight: 0.5
@@ -56,7 +56,7 @@ var mapping1 = {
 
 var map1 = function(){
 	for(prop in this){
-		if(mapping1.hasOwnProperty(prop) && this.hasOwnProperty(prop)){
+		if(propertiesToProcess.hasOwnProperty(prop) && this.hasOwnProperty(prop)){
 			emit(prop, {ID: this._id, value: this[prop]})
 		}
 	}
